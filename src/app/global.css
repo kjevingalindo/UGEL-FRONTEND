@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* UGEL Andahuaylas Color Palette - Modern & Vibrant */
+  /* 60% - Azul Profundo Moderno (Base/Identity) */
+  --background: #f5f5f5;
+  --foreground: #192a56;
+  --card: #ffffff;
+  --card-foreground: #192a56;
+  --popover: #ffffff;
+  --popover-foreground: #192a56;
+
+  /* 30% - Azul Claro Energético (Support/Dynamism) */
+  --primary: #192a56;
+  --primary-foreground: #ffffff;
+
+  /* 10% - Turquesa Vibrante (Focus/Innovation) */
+  --secondary: #00d2d3;
+  --secondary-foreground: #192a56;
+
+  --muted: #e8f4f5;
+  --muted-foreground: #2f3640;
+
+  /* Accent colors for depth */
+  --accent: #2e86de;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4757;
+  --destructive-foreground: #ffffff;
+  --border: #e0e0e0;
+  --input: #f5f5f5;
+  --ring: #00d2d3;
+
+  /* Chart colors */
+  --chart-1: #192a56;
+  --chart-2: #2e86de;
+  --chart-3: #00d2d3;
+  --chart-4: #ff4757;
+  --chart-5: #2f3640;
+
+  --radius: 0.75rem;
+
+  /* Sidebar colors */
+  --sidebar: #192a56;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #2e86de;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00d2d3;
+  --sidebar-accent-foreground: #192a56;
+  --sidebar-border: #0f1a2e;
+  --sidebar-ring: #00d2d3;
+}
+
+.dark {
+  /* Dark mode with modern vibrant palette */
+  --background: #0a0f1a;
+  --foreground: #f5f5f5;
+  --card: #141d2e;
+  --card-foreground: #f5f5f5;
+  --popover: #141d2e;
+  --popover-foreground: #f5f5f5;
+  --primary: #192a56;
+  --primary-foreground: #ffffff;
+  --secondary: #00d2d3;
+  --secondary-foreground: #192a56;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --accent: #2e86de;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4757;
+  --destructive-foreground: #ffffff;
+  --border: #2f3640;
+  --input: #1f2937;
+  --ring: #00d2d3;
+  --chart-1: #192a56;
+  --chart-2: #2e86de;
+  --chart-3: #00d2d3;
+  --chart-4: #ff4757;
+  --chart-5: #2f3640;
+  --sidebar: #0a0f1a;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #2e86de;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00d2d3;
+  --sidebar-accent-foreground: #192a56;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #00d2d3;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Typography hierarchy with Montserrat for headings and Inter for body */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-primary;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-foreground;
+  }
+}
+
+@layer utilities {
+  /* UGEL Modern Gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary via-primary to-accent;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-accent to-secondary;
+  }
+
+  .gradient-hero {
+    @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* 3D Shadow Effects */
+  .shadow-3d {
+    @apply shadow-lg;
+    box-shadow: 0 10px 25px rgba(25, 42, 86, 0.2), 0 4px 10px rgba(25, 42, 86, 0.1);
+  }
+
+  .shadow-3d-secondary {
+    @apply shadow-xl;
+    box-shadow: 0 20px 40px rgba(0, 210, 211, 0.3), 0 8px 16px rgba(0, 210, 211, 0.15);
+  }
+
+  .shadow-3d-accent {
+    @apply shadow-lg;
+    box-shadow: 0 12px 30px rgba(46, 134, 222, 0.25), 0 6px 12px rgba(46, 134, 222, 0.12);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-2 scale-105;
+    box-shadow: 0 25px 50px rgba(0, 210, 211, 0.3), 0 10px 20px rgba(0, 210, 211, 0.15);
+  }
+
+  /* Modern Button Styles */
+  .btn-primary-modern {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white;
+    @apply bg-secondary hover:bg-secondary/90 transition-all duration-300;
+    box-shadow: 0 8px 20px rgba(0, 210, 211, 0.4);
+  }
+
+  .btn-primary-modern:hover {
+    @apply -translate-y-1;
+    box-shadow: 0 12px 30px rgba(0, 210, 211, 0.6);
+  }
+
+  .btn-accent-modern {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold text-white;
+    @apply bg-gradient-to-r from-accent to-secondary transition-all duration-300;
+    box-shadow: 0 8px 20px rgba(46, 134, 222, 0.4);
+  }
+
+  .btn-accent-modern:hover {
+    @apply -translate-y-1 from-accent/90 to-secondary/90;
+    box-shadow: 0 12px 30px rgba(46, 134, 222, 0.6);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-sm bg-black/10 border border-white/10;
+  }
+
+  /* Modern Card Styles */
+  .card-modern {
+    @apply bg-card border border-border rounded-xl p-6 shadow-3d;
+  }
+
+  .card-accent {
+    @apply bg-gradient-to-br from-accent/5 to-secondary/5 border border-secondary/20 rounded-xl p-6 shadow-3d-secondary;
+  }
+
+  /* Navigation styles */
+  .nav-modern {
+    @apply bg-primary/95 backdrop-blur-md border-b border-primary/20;
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent;
+  }
+}
