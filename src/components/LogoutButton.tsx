@@ -17,7 +17,6 @@ export default function LogoutButton() {
       await logout();
       setMessage("Sesión cerrada correctamente ✅");
 
-      // Espera 1.5 segundos antes de redirigir
       setTimeout(() => {
         router.push("/login");
       }, 1500);
@@ -30,25 +29,24 @@ export default function LogoutButton() {
   };
 
   return (
-    <div style={{ marginTop: 16 }}>
+    <div className="flex flex-col items-end space-y-3">
       <button
         onClick={handleLogout}
         disabled={loading}
-        style={{
-          padding: "8px 16px",
-          backgroundColor: loading ? "#f87171" : "#ef4444",
-          color: "#fff",
-          border: "none",
-          borderRadius: 6,
-          cursor: loading ? "not-allowed" : "pointer",
-          transition: "background-color 0.3s",
-        }}
+        className={`
+          px-4 py-2 rounded-lg font-medium transition-all duration-300
+          ${loading
+            ? 'bg-destructive/80 cursor-not-allowed'
+            : 'bg-destructive hover:bg-destructive/90 hover:-translate-y-0.5 shadow-lg hover:shadow-xl'
+          }
+          text-destructive-foreground border border-destructive/20
+        `}
       >
         {loading ? "Cerrando..." : "Cerrar sesión"}
       </button>
 
       {message && (
-        <p style={{ marginTop: 10, color: loading ? "#555" : "#16a34a" }}>
+        <p className={`text-sm font-medium ${loading ? 'text-muted-foreground' : 'text-secondary'} transition-colors duration-300`}>
           {message}
         </p>
       )}
